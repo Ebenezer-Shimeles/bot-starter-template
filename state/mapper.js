@@ -2,6 +2,7 @@
 
 const bot = require('../bot');
 const { reportToAdmin } = require('../utils');
+const handleMessage = require('./cmds');
 const funcs = require('./state')
 
 bot.on('message', (msg) => {
@@ -33,18 +34,7 @@ bot.on('message', (msg) => {
                funcs.handleState(funcs.CHATREMOVED, {msgData: msg})
         }
     }
-    else if(msg['photo']){
-    
-    }
-    else if(msg['text']){
-
-    }
-    else if(msg['animation']){
-
-    }
-    else if(msg['audio']){
-
-    }
+    handleMessage({msgData: msg})
 });
 //# sourceMappingURL=mapper.js.map
 
